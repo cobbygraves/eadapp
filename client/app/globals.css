@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-layout {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.ant-layout .ant-layout-sider-zero-width-trigger {
+  position: absolute;
+  top: 10px;
+  inset-inline-end: -40px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #001529;
+  border-start-start-radius: 0;
+  border-start-end-radius: 6px;
+  border-end-end-radius: 6px;
+  border-end-start-radius: 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ant-layout-header {
+  height: 64px;
+  padding: 0 50px;
+  color: rgba(0, 0, 0, 0.88);
+  line-height: 64px;
+  background: #001529;
+  @media screen and (max-width: 430px) {
+    padding: 0;
+  }
+}
