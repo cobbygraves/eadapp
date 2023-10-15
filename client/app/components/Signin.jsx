@@ -19,7 +19,7 @@ function Signin() {
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [signup, setSignup] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [isChecked, setIsChecked] = useState(true)
+  const [rememberMe, setRememberMe] = useState(false)
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [passwordConfirmError, setPasswordConfirmError] = useState(false)
   const [api, contextHolder] = notification.useNotification()
@@ -117,7 +117,8 @@ function Signin() {
         const response = await signIn('credentials', {
           redirect: false,
           username,
-          password
+          password,
+          rememberMe
         })
 
         if (response.status !== 200) {
@@ -281,8 +282,8 @@ function Signin() {
                     type='checkbox'
                     id='checkbox'
                     className='accent-green-500 text-white border border-green-500 cursor-pointer'
-                    checked={isChecked}
-                    onChange={() => setIsChecked((prevValue) => !prevValue)}
+                    checked={rememberMe}
+                    onChange={() => setRememberMe((prevValue) => !prevValue)}
                   />
                   <label htmlFor='checkbox'>Remember me</label>
                 </div>
