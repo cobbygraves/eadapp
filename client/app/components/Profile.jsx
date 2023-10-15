@@ -46,7 +46,49 @@ const Profile = () => {
             boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)'
           }}
         >
-          <div className='pl-7 md:pl-[16%]  w-screen'>Header</div>
+          <div className='pl-7 pr-2 md:pl-[16%] md:pr-[10%] h-full  w-screen flex items-center justify-between'>
+            <img
+              src='/3sdclTHE 2.png'
+              alt='3sdcl'
+              className='h-[65px] w-[65px] rounded-[50%] object-contain'
+            />
+            <div className='flex items-center gap-10'>
+              <div className='flex items-center gap-3'>
+                <div className='p-[6px] bg-gray-200 rounded-[50%] hidden md:block'>
+                  <img
+                    src='/search (2).png'
+                    alt='3sdcl'
+                    className=' h-[25px] w-[25px] rounded-[50%] object-cover object-left transform rotate-90'
+                  />
+                </div>
+                <div className='p-1 bg-black rounded hidden md:block'>
+                  <img
+                    src='/lamp (2).png'
+                    alt='3sdcl'
+                    className=' h-[30px] w-[30px] rounded-[50%] object-contain'
+                  />
+                </div>
+                <div className='p-[4px] bg-[#f7f6f6] rounded hidden md:block'>
+                  <img
+                    src='/language.png'
+                    alt='3sdcl'
+                    className=' h-[25px] w-[25px] rounded-[50%] object-contain'
+                  />
+                </div>
+              </div>
+              <div className='flex items-center gap-5'>
+                <img
+                  src='/graves.jpg'
+                  alt='3sdcl'
+                  className='h-[50px] w-[50px] rounded-[50%] object-cover'
+                />
+                <div className=' leading-none'>
+                  <p>Kwame Anim</p>
+                  <p className='text-gray-400 text-sm'>Farmer</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </Header>
         <Content
           style={{
