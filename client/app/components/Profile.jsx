@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 // import { useContext, useEffect } from 'react'
 // import { useSession } from 'next-auth/react'
 import Dashboard from './Dashboard'
@@ -9,7 +10,18 @@ import Dashboard from './Dashboard'
 import { Layout, Grid } from 'antd'
 const { useBreakpoint } = Grid
 const { Header, Content, Sider } = Layout
+
+const sideNav = [
+  'Dashboard',
+  'Farmers',
+  'Staff',
+  'Synchronization',
+  'Settings',
+  'Report'
+]
+
 const Profile = () => {
+  const [activeNav, setActiveNav] = useState(0)
   // const router = useRouter()
   // const { data: session } = useSession()
 
@@ -20,6 +32,10 @@ const Profile = () => {
   //     router.replace('/')
   //   }
   // }, [])
+
+  const handleActiveNav = (index) => {
+    setActiveNav(index)
+  }
 
   return (
     <Layout>
@@ -34,7 +50,27 @@ const Profile = () => {
           zIndex: 200
         }}
       >
-        <div className=' p-5 h-screen'>Sidebar</div>
+        <div className='h-screen pl-[10%]'>
+          <img
+            src='/e-ADAPP logo 23.png'
+            alt='logo'
+            className='w-[90%] h-15 object-contain'
+          />
+          <p className='my-10 text-lg text-green-500'>MAIN NAVIGATION</p>
+          <div className='flex flex-col px-2 gap-2'>
+            {sideNav.map((navItem, index) => (
+              <p
+                key={navItem}
+                className={`font-semibold hover:cursor-pointer hover:text-green-400 ${
+                  activeNav === index ? 'text-green-400' : ''
+                }`}
+                onClick={() => handleActiveNav(index)}
+              >
+                {navItem}
+              </p>
+            ))}
+          </div>
+        </div>
       </Sider>
       <Layout>
         <Header
@@ -43,10 +79,10 @@ const Profile = () => {
             zIndex: 100,
             background: 'white',
             position: 'fixed',
-            boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)'
+            boxShadow: '0 15px 10px -6px rgb(0 0 0 / 0.25)'
           }}
         >
-          <div className='pl-7 pr-2 md:pl-[16%] md:pr-[10%] h-full  w-screen flex items-center justify-between'>
+          <div className='pl-2 pr-2 md:pl-[16%] md:pr-[10%] h-full  w-screen flex items-center justify-between'>
             <img
               src='/3sdclTHE 2.png'
               alt='3sdcl'
@@ -97,11 +133,23 @@ const Profile = () => {
             margin: `20px 20px 120px ${screens.xs ? '5%' : '18%'}`
           }}
         >
-          <p className='shadow-2xl rounded-lg p-5 mb-3 '>
-            Laborum Lorem sint laborum amet amet. Velit quis qui incididunt
-            cillum proident. Nisi qui anim consectetur et. Consectetur excepteur
-            ullamco elit cillum cillum irure dolore minim exercitation.
-          </p>
+          <div className='shadow-2xl rounded-lg py-5 px-10 mb-3 flex items-center gap-5'>
+            <div className='p-2 md:p-3 shadow-md rounded-md shadow-gray-600'>
+              <img
+                src='/agenda.png'
+                className='w-[150px] md:w-[40px] h-[50px] object-contain'
+              />
+            </div>
+            <div className=' leading-2 font-semibold'>
+              <p className='text-lg'>Farmer's Panel</p>
+
+              <p className=' text-gray-500 text-sm font-light'>
+                {' '}
+                Laborum Lorem sint laborum amet amet. Velit quis qui incididunt
+                cillum proident. Nisi qui anim consectetur et.{' '}
+              </p>
+            </div>
+          </div>
 
           <Dashboard />
         </Content>
