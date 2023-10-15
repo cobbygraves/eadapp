@@ -39,9 +39,9 @@ const handler = NextAuth({
           username: credentials?.username,
           password: credentials?.password
         })
-        console.log(res.data)
+
         const user = await res.data
-        console.log(user)
+
         // If no error and we have user data, return it
         if (user) {
           return user
@@ -68,7 +68,7 @@ const handler = NextAuth({
   callbacks: {
     jwt: async ({ token, account, profile }) => {
       // the token contains the user's access token, _id and email or username for credentails login
-      if (account) {
+      if (account && profile) {
         token.accessToken = account.access_token
         token.id = profile.id
       } // the token contains the OAuth access token and id for OAuth login

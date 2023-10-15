@@ -286,7 +286,7 @@ function Signin() {
                   />
                   <label htmlFor='checkbox'>Remember me</label>
                 </div>
-                <Link href='#'>
+                <Link href='forgot-password'>
                   <p className=' cursor-pointer underline'>forgot password</p>
                 </Link>
               </div>
