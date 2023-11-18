@@ -6,7 +6,7 @@ import Login from './components/Login'
 export default function Home() {
   const { data: session } = useSession()
   return (
-    <div className='relative w-screen h-screen'>
+    <div className='relative w-screen h-screen '>
       {session ? <Profile /> : <Login />}
     </div>
   )
